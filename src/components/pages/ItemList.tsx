@@ -7,6 +7,7 @@ import TextField from "@material-ui/core/TextField";
 import Paper from "@material-ui/core/Paper";
 import MenuItem from "@material-ui/core/MenuItem";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import { useTranslation } from "react-i18next";
 
 function renderInputComponent(inputProps: any) {
   const { classes, inputRef = () => {}, ref, ...other } = inputProps;
@@ -66,6 +67,8 @@ function getSuggestionValue(suggestion: OptionType) {
 }
 
 export const ItemList = ({ handleSelectedItem }) => {
+  const { t } = useTranslation();
+
   const classes = useStyles({});
   const [state, setState] = useState({
     single: ""
@@ -106,7 +109,7 @@ export const ItemList = ({ handleSelectedItem }) => {
         {...autosuggestProps}
         inputProps={{
           classes,
-          label: "Item",
+          label: t("item"),
           value: state.single,
           onChange: handleChange("single")
         }}

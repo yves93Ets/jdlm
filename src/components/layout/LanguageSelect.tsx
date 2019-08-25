@@ -1,22 +1,19 @@
-import React, { useState, ChangeEvent, useContext } from "react";
+import React, { useState, ChangeEvent } from "react";
 import { Select, MenuItem, FormControl, InputLabel } from "@material-ui/core";
-import { LocalizedContext } from "Common/hooks/localization/localizedContext";
+import { useTranslation } from "react-i18next";
 
 export const LanguageSelect = () => {
-  const [language, setlanguages] = useState("");
+  const { t, i18n } = useTranslation();
+  const [language, setlanguages] = useState("en");
 
   const handleChange = (event: ChangeEvent<{ value: string }>) => {
     setlanguages(event.target.value);
-    console.log(localized);
-    localized.setLanguage(language);
-    console.log(localized);
+    i18n.changeLanguage(event.target.value);
   };
-
-  const localized = useContext(LocalizedContext);
 
   return (
     <FormControl style={languageStyle}>
-      <InputLabel shrink>{localized.language}</InputLabel>
+      <InputLabel shrink>{t("language")}</InputLabel>
       <Select value={language} onChange={handleChange}>
         <MenuItem value="en">en</MenuItem>
         <MenuItem value="es">es</MenuItem>

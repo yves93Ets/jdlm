@@ -2,17 +2,17 @@ import React from "react";
 import { Header } from "Components/layout/Header";
 import { Footer } from "Components/layout/Footer";
 import { LoanForm } from "Components/pages/LoanForm";
-import { LocalizedProvider } from "Common/hooks/localization/localizedContext";
-import { localizedHeader } from "Common/hooks/localization/localizedStrings ";
+import { I18nextProvider } from "react-i18next";
+import i18n from "./i18n";
 
 export function App() {
   return (
     <>
-      <LocalizedProvider value={localizedHeader}>
+      <I18nextProvider i18n={i18n}>
         <Header />
         <LoanForm />
         <Footer />
-      </LocalizedProvider>
+      </I18nextProvider>
     </>
   );
 }

@@ -1,15 +1,14 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { LanguageSelect } from "Components/layout/LanguageSelect";
-import { LocalizedContext } from "Common/hooks/localization/localizedContext";
+import { useTranslation } from "react-i18next";
 
 export function Header() {
-  const localized = useContext(LocalizedContext);
-
+  const { t, i18n } = useTranslation();
   return (
     <StyledLayout>
       <header style={headerStyle}>
-        <h1>{localized.language}</h1>
+        <h1>{t("item")}</h1>
         <LanguageSelect />
       </header>
     </StyledLayout>

@@ -5,12 +5,16 @@ import { useInputForm } from "Common/hooks/inputForm";
 import { LoanModel } from "Models/LoanModel";
 import { ItemList } from "Components/pages/ItemList";
 import { CustomizedSnackbars } from "Components/layout/SnackBar";
+import { useTranslation } from "react-i18next";
 
 export const LoanForm = () => {
+  const { t } = useTranslation();
+
   const [submitted, setSubmitted]: any = useState(false);
   useEffect(() => {
     setSubmitted(false);
   }, [submitted]);
+
   const [addedLoan, setAddedLoan]: any = useState({});
   const [selectedItem, setSelectedItem]: any = useState({});
   const [email, setEmail]: any = useState({});
@@ -45,7 +49,7 @@ export const LoanForm = () => {
             autoFocus
             fullWidth
             className={classes.input}
-            label="email"
+            label={t("email")}
             name="email"
             type="email"
             onChange={handleInputChange}
@@ -58,7 +62,7 @@ export const LoanForm = () => {
             multiline
             fullWidth
             className={classes.input}
-            label="note"
+            label={t("note")}
             name="note"
             onChange={handleInputChange}
             value={inputs.note || ""}
@@ -68,7 +72,7 @@ export const LoanForm = () => {
           <ItemList handleSelectedItem={handleSelectedItem} />
         </div>
         <Button type="submit" variant="outlined" color="primary" className={classes.button}>
-          Confirm
+          {t("confirm")}
         </Button>
       </form>
     </>
