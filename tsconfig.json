@@ -1,0 +1,26 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "target": "es5",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "jsx": "react",
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "removeComments": false,
+    "sourceMap": true,
+    "importHelpers": true,
+    "skipLibCheck": true,
+    "lib": ["dom", "esnext"],
+    "baseUrl": ".",
+    "paths": {
+      "@app/*": ["src/*"],
+      "Components/*": ["src/components/*"],
+      "Models/*": ["src/common/models/*"],
+      "Common/*": ["src/common/*"]
+    },
+    "plugins": [{ "name": "typescript-tslint-plugin" }, { "name": "typescript-styled-plugin" }]
+  },
+  "exclude": ["bin", "node_modules", "dist"]
+}

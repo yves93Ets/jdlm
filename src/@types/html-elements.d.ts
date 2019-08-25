@@ -1,0 +1,1 @@
+﻿type AnyHtmlField = HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
